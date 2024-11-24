@@ -104,3 +104,33 @@ export const getRecommendedProducts = async (req, res) => {
         res.status(500).json({ message: "Error in getRecommendedProducts", error: error.message });
     }
 }
+
+
+export const getProductsByCategory = async (req, res) => {
+    const category = req.params.category
+    try {
+        const products = await Product.find({ category });
+        res.json(products);
+    } catch (error) {
+        console.log("Error in getProductsByCategory", error.message);
+        res.status(500).json({ message: "Error in getProductsByCategory", error: error.message });
+    }
+}
+
+
+export const toggleFeaturedProduct = async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+
+        if(product){
+            product.isFeatured =!product.isFeatured;
+            const updatedProduct = await product.save();
+            res.json(updatedProduct);
+        }else{
+            return res.status(404).json({ message: "Product not found" });
+        }
+    } catch (error) {
+        console.log("Error in toggleFeaturedProduct", error.message);
+        res.status(500).json({ message: "Error in toggleFeaturedProduct", error: error.message });
+    }
+}
