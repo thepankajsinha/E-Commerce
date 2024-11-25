@@ -1,4 +1,5 @@
 import Product from "../models/productModel.js"
+import cloudinary from "../lib/cloudinary.js";
 
 export const getAllProducts = async (req, res) => {
     try {
@@ -71,7 +72,7 @@ export const deleteProduct = async (req, res) => {
             }
         }
 
-        await Product.findByIdAndDelete(request.params.id);
+        await Product.findByIdAndDelete(req.params.id);
         res.json({ message: "Product deleted successfully" });
 
     } catch (error) {
