@@ -50,6 +50,8 @@ export const signup = async (req, res) => {
   }
 };
 
+
+
 export const login = async (req, res) => {
     try {
         // Validate request body
@@ -94,6 +96,8 @@ export const login = async (req, res) => {
     }
 };
 
+
+
 export const logout = async (req, res) => {
     try {
 
@@ -108,4 +112,11 @@ export const logout = async (req, res) => {
     }
 };
 
-export const getProfile = async (req, res) => {};
+export const getProfile = async (req, res) => {
+	try {
+		res.json(req.user);
+	} catch (error) {
+        console.log("Error in getProfile", error.message);
+        res.status(500).json({ message: "Error in getProfile", error: error.message });
+	}
+};
