@@ -10,13 +10,12 @@ const stripePromise = loadStripe(
 );
 
 const OrderSummary = () => {
-	const { total, subtotal, coupon, isCouponApplied, cart } = useCartStore();
+	const { total, subtotal, cart } = useCartStore();
 
 	const handlePayment = async () => {
 		const stripe = await stripePromise;
 		const res = await axios.post("/payments/create-checkout-session", {
 			products: cart,
-			couponCode: coupon ? coupon.code : null,
 		});
 
 		const session = res.data;

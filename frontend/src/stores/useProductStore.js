@@ -52,21 +52,7 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
-    toggleFeaturedProduct: async (productId) => {
-        set({loading: true});
-
-        try {
-            const response = await axios.put(`/products/${productId}`);
-            set((prevState) => ({
-                products: prevState.products.map((product) => product._id === productId? {...product, isFeatured: response.data.isFeatured} : product),
-                loading: false,
-            }));
-        } catch (error) {
-            set({error: "Failed to toggle product", loading: false})
-            toast.error(error.response.data.error || "Failed to toggle products");
-        }
-    },
-
+    
     deleteProduct: async (productId) => {
 		set({ loading: true });
 		try {
