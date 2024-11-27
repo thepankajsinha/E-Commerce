@@ -12,21 +12,6 @@ export const getAllProducts = async (req, res) => {
 }
 
 
-export const getFeaturedProducts = async (req, res) => {
-    try {
-        const featuredProducts = await Product.find({isFeatured: true}).lean();
-
-        if(!featuredProducts){
-            return res.status(404).json({ message: "No featured products found" });
-        }
-        res.json(featuredProducts);
-    } catch (error) {
-        console.log("Error in getFeaturedProducts", error.message);
-        res.status(500).json({ message: "Error in getFeaturedProducts", error: error.message });
-    }
-}
-
-
 export const createProduct = async (req, res) => {
     try {
         const { name, description, price, category, image } = req.body;
@@ -91,23 +76,5 @@ export const getProductsByCategory = async (req, res) => {
     } catch (error) {
         console.log("Error in getProductsByCategory", error.message);
         res.status(500).json({ message: "Error in getProductsByCategory", error: error.message });
-    }
-}
-
-
-export const toggleFeaturedProduct = async (req, res) => {
-    try {
-        const product = await Product.findById(req.params.id);
-
-        if(product){
-            product.isFeatured =!product.isFeatured;
-            const updatedProduct = await product.save();
-            res.json(updatedProduct);
-        }else{
-            return res.status(404).json({ message: "Product not found" });
-        }
-    } catch (error) {
-        console.log("Error in toggleFeaturedProduct", error.message);
-        res.status(500).json({ message: "Error in toggleFeaturedProduct", error: error.message });
     }
 }
