@@ -2,6 +2,7 @@
 https://youtu.be/Z4ryvM4wkAE?si=ymNjMTYy29SJ7OY8
 
 
+Home Page
 ![homepage](https://github.com/user-attachments/assets/25312f16-f855-473f-828c-aba1b42a4e48)
 ![productPage](https://github.com/user-attachments/assets/65c5c187-e5a5-43dd-8304-5723113055fa)
 ![cartPage](https://github.com/user-attachments/assets/ed2dd7ed-56d7-4ece-ba99-c45390a5d140)
