@@ -6,7 +6,7 @@ dotenv.config();
 //create a axios instance
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.BACKEND_URL,
+  baseURL: `${import.meta.env.BACKEND_URL}/api`,
   withCredentials: true, // to send cookies with requests to the backend
 });
 
