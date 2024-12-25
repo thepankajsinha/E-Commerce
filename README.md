@@ -1,6 +1,3 @@
-# The silk thread
-https://youtu.be/Z4ryvM4wkAE?si=ymNjMTYy29SJ7OY8
-
 
 # Home Page
 ![homepage](https://github.com/user-attachments/assets/25312f16-f855-473f-828c-aba1b42a4e48)
