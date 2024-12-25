@@ -1,13 +1,8 @@
 import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-//create a axios instance
 
 const axiosInstance = axios.create({
-  baseURL: `${import.meta.env.VITE_BACKEND_URL}/api`,
-  withCredentials: true, // to send cookies with requests to the backend
+	baseURL: import.meta.mode === "development" ? "http://localhost:5000/api" : "/api",
+	withCredentials: true, // send cookies to the server
 });
 
 export default axiosInstance;
